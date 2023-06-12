@@ -1,0 +1,39 @@
+### Get the root URL
+GET http://localhost:8000
+
+
+### Get all the tasks
+GET http://localhost:8000/api/v1/task
+
+
+### Post tasks to fakeTasks array
+POST http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+    "id":123,
+    "task": "Exploring",
+    "hour": 33,
+    "type": "entry" 
+}
+
+### Update the type of the task
+PATCH http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+    "id":"121",
+    "type":"bad"
+}
+
+### Delete the task from the array
+DELETE http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+    "id":"121"
+}
+
+
+
+
