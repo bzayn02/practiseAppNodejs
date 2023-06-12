@@ -41,7 +41,20 @@ router.patch('/', (req, res) => {
   try {
     const { id, type } = req.body;
     console.log(id, type);
-  } catch (error) {}
+    fakeTasks = fakeTasks.map((item) => {
+      if (item.id === id) {
+        return { ...item, type };
+      }
+      return item;
+    });
+    res.json({
+      status: 'success',
+      message: 'Task type updated.',
+      updatedTasks: fakeTasks,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 router.delete('/', (req, res) => {
