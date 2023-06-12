@@ -7,3 +7,11 @@ export const addTask = (taskObj) => {
 export const findTask = () => {
   return TaskSchema.find();
 };
+
+export const switchType = (_id, type) => {
+  return TaskSchema.findByIdAndUpdate(_id, { type });
+};
+
+export const deleteTask = (_id) => {
+  return TaskSchema.findByIdAndDelete(_id);
+};

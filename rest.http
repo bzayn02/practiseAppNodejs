@@ -20,7 +20,7 @@ PATCH http://localhost:8000/api/v1/task
 Content-Type: application/json
 
 {
-    "id":"121",
+    "_id":"6487153a89dcbcbcbe9645d8",
     "type":"bad"
 }
 
@@ -29,7 +29,7 @@ DELETE http://localhost:8000/api/v1/task
 Content-Type: application/json
 
 {
-    "id":"121"
+    "_id":"6487153a89dcbcbcbe9645d8"
 }
 
 
