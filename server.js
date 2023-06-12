@@ -2,12 +2,14 @@ import express from 'express';
 import cors from 'cors';
 
 import taskRouter from './src/routers/taskRouter.js';
+import { mongoConnect } from './src/config/mongoDB.js';
 
 const app = express();
 const PORT = 8000;
 
 // Middlewares
 app.use(express.json());
+mongoConnect();
 
 // Task router
 app.use('/api/v1/task', taskRouter);
