@@ -11,10 +11,8 @@ POST http://localhost:8000/api/v1/task
 Content-Type: application/json
 
 {
-    "id":123,
     "task": "Exploring",
-    "hour": 33,
-    "type": "entry" 
+    "hour": 33
 }
 
 ### Update the type of the task

@@ -1,30 +1,26 @@
 import express from 'express';
+import { addTask, findTask } from '../model/TaskModel.js';
 
 const router = express.Router();
 
-let fakeTasks = [
-  { id: '122', task: 'Cooking', hour: 33, type: 'entry' },
-  { id: '121', task: 'Coding', hour: 33, type: 'entry' },
-];
-
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  const taskList = await findTask();
   res.json({
     status: 'success',
     message: 'Here are the tasks',
-    tasks: fakeTasks,
+    taskLists: taskList,
   });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const data = req.body;
-    console.log(data);
+    const data = await req.body;
 
-    fakeTasks.push(data)
+    const result = await addTask(data);
+    result._id
       ? res.json({
           status: 'success',
-          message: 'Data has been added to array',
-          newData: fakeTasks,
+          message: 'New task has been added.',
         })
       : res.json({
           status: 'error',
